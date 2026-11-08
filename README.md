@@ -1,29 +1,38 @@
-# Sparse Mixture Routing for Efficient Vision-Language Pretraining
+# Efficient Sparse Attention for Long-Context Transformers
 
-**Status: code released.**
+**This repository contains the official implementation of the paper
+"Efficient Sparse Attention for Long-Context Transformers" (ACL 2026).**
 
-This repository contains the implementation for the paper:
+The code covers data preparation, training of the routing network, and
+evaluation on the long-context benchmarks reported in the paper.
 
-> **Sparse Mixture Routing for Efficient Vision-Language Pretraining**
-> Maria Hernandez, Wei Zhang, Sofia Alvarez
-> CVPR 2024
-
-The released code contains the sparse mixture router, the vision-language
-encoder and the pretraining/evaluation scripts used in the paper.
-
-## Repository layout
-
-- `src/` - model, data pipeline, training and evaluation code
-- `configs/` - experiment configuration files
-- `scripts/` - launch scripts
-
-## Getting started
+## Setup
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-python -m src.train --config configs/default.yaml
+```
+
+## Training
+
+```bash
+bash scripts/train_sparse_attention.sh --config configs/acl_sparse.yaml
+```
+
+## Evaluation
+
+```bash
+python -m sparse_attention.evaluate --checkpoint checkpoints/sparse_acl.pt
 ```
 
 ## Citation
 
-If you use this code, please cite the paper above.
+```bibtex
+@inproceedings{cook2026sparse,
+  title={Efficient Sparse Attention for Long-Context Transformers},
+  author={Cook, Ronald and Zhang, Alice and Yilmaz, Mehmet},
+  booktitle={Proceedings of ACL 2026},
+  year={2026}
+}
+```

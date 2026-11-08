@@ -1,0 +1,10 @@
+dim: 512
+num_heads: 8
+block_size: 64
+sparsity: 0.5
+batch_size: 16
+lr: 0.0003
+epochs: 30
+entropy_weight: 0.01
+data_path: data/long_context
+output_path: checkpoints/sparse_acl.pt
